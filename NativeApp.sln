@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NativeApp", "NativeApp\NativeApp.vcxproj", "{518DB3CE-9342-4039-9AE9-5C2985D91B13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{518DB3CE-9342-4039-9AE9-5C2985D91B13}.Debug|x64.ActiveCfg = Debug|x64
+		{518DB3CE-9342-4039-9AE9-5C2985D91B13}.Debug|x64.Build.0 = Debug|x64
+		{518DB3CE-9342-4039-9AE9-5C2985D91B13}.Release|x64.ActiveCfg = Release|x64
+		{518DB3CE-9342-4039-9AE9-5C2985D91B13}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7E16716-48B4-48E8-AD5A-521B4C113DA6}
+	EndGlobalSection
+EndGlobal

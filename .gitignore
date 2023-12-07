@@ -1,0 +1,8 @@
+/.vs/NativeApp/FileContentIndex/39cebe38-e636-4526-afed-5e3406912f68.vsidx
+/.vs
+*.obj
+*.pdb
+*.exe
+/vcpkg_installed
+/x64
+/NativeApp/x64
