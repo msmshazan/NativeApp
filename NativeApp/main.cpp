@@ -19,9 +19,6 @@ struct AppState {
 
 global bool loading = true;
 
-
-
-
 void AppRenderFunction(AppState* appState) 
 {
 	ImGui_ImplDX11_NewFrame();
@@ -104,6 +101,7 @@ int main(int argc, char** argv)
 	}
 	SDL_SetHint(SDL_HINT_IME_SHOW_UI, "1");
 
+
 	SDL_WindowFlags window_flags = (SDL_WindowFlags)(SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
 	SDL_Window* window = SDL_CreateWindow("Native App", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 720, window_flags);
 	
@@ -121,7 +119,7 @@ int main(int argc, char** argv)
 	
 
 	ImGui::CreateContext();
-	ImGuiIO io = ImGui::GetIO(); (void)io;
+	ImGuiIO io = ImGui::GetIO(); 
 	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 	io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
 	io.Fonts->AddFontFromFileTTF("Fonts/LiberationMono-Regular.ttf",16);
