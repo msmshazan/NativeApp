@@ -170,6 +170,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="data_layer.cpp" />
     <ClCompile Include="dx11_helpers.cpp" />
     <ClCompile Include="imgui.cpp" />
     <ClCompile Include="imgui_demo.cpp" />
@@ -183,6 +184,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common.h" />
+    <ClInclude Include="data_layer.h" />
     <ClInclude Include="dx11_helpers.h" />
     <ClInclude Include="imconfig.h" />
     <ClInclude Include="imgui.h" />

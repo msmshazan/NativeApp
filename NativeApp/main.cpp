@@ -17,7 +17,13 @@ struct AppState {
 	PersistantState* PersistantState;
 };
 
-global bool loading = true;
+
+void RefreshUI() {
+	SDL_Event event = {};
+	event.type = SDL_USEREVENT;
+	SDL_PushEvent(&event);
+	SDL_PushEvent(&event);
+}
 
 void AppRenderFunction(AppState* appState) 
 {
@@ -26,6 +32,9 @@ void AppRenderFunction(AppState* appState)
 	ImGui::NewFrame();
 	ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
 	local_persist bool showDemo = false;
+	local_persist bool initialRun = true;
+	local_persist bool startConnectionToDB = false;
+	local_persist bool failedConnectionToDB = false;
 	ImGuiViewport* viewport = ImGui::GetMainViewport();
 	ImGui::SetNextWindowPos(viewport->WorkPos);
 	ImGui::SetNextWindowSize(viewport->WorkSize);
@@ -37,17 +46,38 @@ void AppRenderFunction(AppState* appState)
 	
 	ImGui::Begin("Test", 0, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoBringToFrontOnFocus);
 	{
-		ImGui::SetNextWindowSize(ImVec2(200,60));
-		if (ImGui::BeginPopupModal("Alert", 0, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove))
+		if (ImGui::BeginPopupModal("Alert", 0,ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoMove))
 		{
-			ImGui::Text("Connecting.");
+			if (failedConnectionToDB) {
+				ImGui::Text("Failed To Connect to Database.");
+				if (ImGui::Button("OK")) {
+					ImGui::CloseCurrentPopup();
+				}
+			}
+			else {
+				ImGui::Text("Connecting to Database");
+			}
+			if (!startConnectionToDB) {
+				startConnectionToDB = true;
+				SDL_ThreadFunction ThreadFunc = (SDL_ThreadFunction)+[](void* data) {
+					DB::ConnectToDatabase();
+					if (!DB::IsConnectedToDatabase) {
+						failedConnectionToDB = true;
+					}
+					RefreshUI();
+					};
+				SDL_Thread* thread = SDL_CreateThread(ThreadFunc, "ThreadFunc", NULL);
+				RefreshUI();
+			}
+
 			ImGui::EndPopup();
 		}
-		if (loading) 
+		if (initialRun)
 		{
 			ImGui::OpenPopup("Alert");
 		}
-		else 
+
+		if(DB::IsConnectedToDatabase || failedConnectionToDB)
 		{
 
 			if (ImGui::BeginMainMenuBar()) {
@@ -79,7 +109,7 @@ void AppRenderFunction(AppState* appState)
 	if (showDemo) {
 		ImGui::ShowDemoWindow(&showDemo);
 	}
-
+	initialRun = false;
 	ImGui::Render();
 
 	// Rendering
@@ -89,6 +119,7 @@ void AppRenderFunction(AppState* appState)
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 	g_pSwapChain->Present(1, 0);
 }
+
 
 
 int main(int argc, char** argv)
