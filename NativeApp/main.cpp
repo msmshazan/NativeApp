@@ -87,7 +87,6 @@ void AppRenderFunction(AppState* appState)
 
 		if(DB::IsConnectedToDatabase || failedConnectionToDB)
 		{
-
 			if (ImGui::BeginMainMenuBar()) {
 				ImGui::MenuItem("File");
 

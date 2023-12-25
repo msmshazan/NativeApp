@@ -200,10 +200,10 @@
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
-    <CopyFileToFolders Include=".env">
+    <None Include=".env">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <FileType>Document</FileType>
-    </CopyFileToFolders>
+    </None>
     <None Include="imgui.ini" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

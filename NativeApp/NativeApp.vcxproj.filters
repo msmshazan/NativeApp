@@ -98,8 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="imgui.ini" />
-  </ItemGroup>
-  <ItemGroup>
-    <CopyFileToFolders Include=".env" />
+    <None Include=".env" />
   </ItemGroup>
 </Project>
