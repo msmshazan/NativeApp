@@ -6,3 +6,4 @@
 /vcpkg_installed
 /x64
 /NativeApp/x64
+/NativeApp/.env

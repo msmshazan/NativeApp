@@ -1,13 +1,16 @@
 #pragma once
 
 #include "common.h"
+
 // Windows 
 #define NOMINMAX 
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
+
 // SQL
 #include <sql.h>
 #include <sqlext.h>
+#include <oledb.h>
 
 // SDL2
 #include <SDL2/SDL.h>

@@ -5,6 +5,7 @@
 */
 
 #include "common.h"
+
 // Windows 
 #define NOMINMAX 
 #define WIN32_LEAN_AND_MEAN
@@ -13,6 +14,8 @@
 // SQL
 #include <sql.h>
 #include <sqlext.h>
+#include <oledb.h>
+
 // Direct3d
 #include <dxgi.h>
 #include <d3d11.h>
@@ -28,3 +31,4 @@
 
 #include "data_layer.h"
 #include "dx11_helpers.h"
+#include "dotenv.h"

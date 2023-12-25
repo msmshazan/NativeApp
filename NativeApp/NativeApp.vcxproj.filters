@@ -48,6 +48,9 @@
     <ClCompile Include="data_layer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="dotenv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imgui.h">
@@ -89,8 +92,14 @@
     <ClInclude Include="data_layer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="dotenv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="imgui.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include=".env" />
   </ItemGroup>
 </Project>

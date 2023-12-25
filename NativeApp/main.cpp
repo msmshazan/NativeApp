@@ -52,6 +52,7 @@ void AppRenderFunction(AppState* appState)
 				ImGui::Text("Failed To Connect to Database.");
 				if (ImGui::Button("OK")) {
 					ImGui::CloseCurrentPopup();
+					RefreshUI();
 				}
 			}
 			else {
@@ -124,7 +125,7 @@ void AppRenderFunction(AppState* appState)
 
 int main(int argc, char** argv)
 {
-
+	env_load(".", false);
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
 	{
 		printf("Error: %s\n", SDL_GetError());
