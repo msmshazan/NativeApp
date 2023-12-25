@@ -55,6 +55,13 @@ void AppRenderFunction(AppState* appState)
 					RefreshUI();
 				}
 			}
+			else if (DB::IsConnectedToDatabase) {
+				ImGui::Text("Connected to Database Successfully.");
+				if (ImGui::Button("OK")) {
+					ImGui::CloseCurrentPopup();
+					RefreshUI();
+				}
+			}
 			else {
 				ImGui::Text("Connecting to Database");
 			}

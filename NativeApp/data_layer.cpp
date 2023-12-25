@@ -7,9 +7,9 @@ namespace DB {
 
 	void ConnectToDatabase() {
 
-		SQLHENV env;
-		SQLHDBC dbc;
-		SQLRETURN ret;
+		void* env;
+		void* dbc;
+		short ret;
 		char outstr[1024] = {};
 		short outstrlen;
 		SQLAllocHandle(SQL_HANDLE_ENV, SQL_NULL_HANDLE, &env);
